@@ -31,3 +31,14 @@ kubectl run devbox -ti \
   --restart Never \
   --overrides='{ "spec": { "imagePullSecrets": [{"name": "regcred"}] } }'
 ```
+
+If you want to keep the pod running forever, so that we can re-attach to it later:
+```shell
+kubectl run devbox \
+  --image nassos/devbox-heraclitus \
+  --restart Always \
+  --command sleep infinity
+```
+```shell
+kubectl exec -ti devbox -- /bin/bash
+```
