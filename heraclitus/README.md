@@ -10,15 +10,16 @@
 - [x] kube-ps1
 
 ## Usage
-Run the container:
-```bash
-docker run -ti nassos/devbox-heraclitus
+### Docker
+```shell
+docker run -ti \
+  --name devbox \
+  nassos/devbox-heraclitus
 ```
 
-Mounting local resources:
-```bash
-docker run -ti \
-  -v $HOME/.kube:/root/.kube \
-  -v $HOME/Projects:/root/Projects \
-  nassos/devbox-heraclitus
+### Kubernetes
+```shell
+kubectl run devbox -ti \
+  --image nassos/devbox-heraclitus \
+  --restart Never
 ```

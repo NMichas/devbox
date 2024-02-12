@@ -16,6 +16,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -o /usr/local/bin/kubens && \
     curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx -o /usr/local/bin/kubectx && \
     chmod +x /usr/local/bin/kubens /usr/local/bin/kubectx && \
+    mkdir -p ~/.kube && \
     echo "export KUBECONFIG=\$(find ~/.kube -type f -name 'config-*' -exec echo -n {} \; -exec echo -n ':' \; | sed 's/:$//')" >> ~/.bashrc && \
     curl -L https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh -o /usr/local/bin/kube-ps1.sh && \
     echo "source /usr/local/bin/kube-ps1.sh" >> ~/.bashrc && \
