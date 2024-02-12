@@ -23,3 +23,11 @@ kubectl run devbox -ti \
   --image nassos/devbox-heraclitus \
   --restart Never
 ```
+
+If you need to specify a secret for pulling images:
+```shell
+kubectl run devbox -ti \
+  --image nassos/devbox-heraclitus \
+  --restart Never \
+  --overrides='{ "spec": { "imagePullSecrets": [{"name": "regcred"}] } }'
+```
